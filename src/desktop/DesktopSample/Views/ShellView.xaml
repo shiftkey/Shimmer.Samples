@@ -6,6 +6,72 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            <Button x:Name="Settings" Content="Settings" HorizontalAlignment="Right" VerticalAlignment="Top" />
+
+        <Grid Margin="20,60,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock FontWeight="Bold" 
+                       Text="Shimmer Desktop Sample" 
+                       FontSize="18" />
+
+            <TextBlock TextWrapping="Wrap" Grid.Row="1">
+                <Run Text="This is a demo application which shows how you can wireup Shimmer inside your application" />
+            </TextBlock>
+        </Grid>
+
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom" 
+            Margin="0,20">
+
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/images/noun_project_464.xaml.png"
+                           Height="40"
+                           Width="40"
+                           Margin="5" />
+                    <TextBlock VerticalAlignment="Center"
+                               Margin="5"
+                               MinWidth="65" >
+                        <Run Text="Updating"/>
+                        <LineBreak />
+                        <Run Text="Basics"/>
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/images/noun_project_4985.xaml.png"
+                           Height="40"
+                           Width="40"
+                           Margin="5" />
+                    <TextBlock VerticalAlignment="Center"
+                               Margin="5"
+                               MinWidth="65" >
+                        <Run Text="Background"/>
+                        <LineBreak />
+                        <Run Text="Updates"/>
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="Settings">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/images/noun_project_5564.xaml.png"
+                           Height="40"
+                           Width="40"
+                           Margin="5" />
+                    <TextBlock Text="Settings"
+                               MinWidth="65"
+                               VerticalAlignment="Center"
+                               Margin="5" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </UserControl>

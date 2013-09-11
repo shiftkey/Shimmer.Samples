@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using ReactiveUI;
+using ReactiveUI.Xaml;
 using Shimmer.DesktopDemo.ViewModels;
 
 namespace Shimmer.DesktopDemo.Views
@@ -9,6 +10,8 @@ namespace Shimmer.DesktopDemo.Views
         public ShellView()
         {
             InitializeComponent();
+
+            this.BindCommand(ViewModel, x => x.SettingsCommand, x => x.Settings);
         }
 
         public ShellViewModel ViewModel {

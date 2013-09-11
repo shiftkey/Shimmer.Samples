@@ -1,15 +1,18 @@
 ﻿using System.Reactive.Linq;
 using System;
 using ReactiveUI;
+using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
 using Shimmer.DesktopDemo.Logic;
 
 namespace Shimmer.DesktopDemo.ViewModels
 {
-    public class SettingsViewModel : ReactiveValidatedObject
+    public class SettingsViewModel : ReactiveValidatedObject, IRoutableViewModel
     {
-        public SettingsViewModel(ISettingsProvider settingsProvider)
+        public SettingsViewModel(IScreen screen, ISettingsProvider settingsProvider)
         {
+            HostScreen = screen;
+
             SaveCommand = new ReactiveCommand(
                 ValidationObservable.Select(next => next.Value),
                 initialCondition: false);
@@ -31,5 +34,8 @@ namespace Shimmer.DesktopDemo.ViewModels
             get { return _UpdateLocation; }
             set { this.RaiseAndSetIfChanged(vm => vm.UpdateLocation, value); }
         }
+
+        public string UrlPathSegment { get { return "settings"; } }
+        public IScreen HostScreen { get; private set; }
     }
 }

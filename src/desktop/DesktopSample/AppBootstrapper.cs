@@ -36,13 +36,15 @@ namespace Shimmer.DesktopDemo
                     newBuilder.Update(container);
                 });
 
-            Router.Navigate.Execute(new ShellViewModel(this));
+            var shell = container.Resolve<ShellViewModel>();
+            Router.Navigate.Execute(shell);
         }
 
         static ContainerBuilder CreateStandardContainer()
         {
             var container = new ContainerBuilder();
             container.RegisterAssemblyTypes(typeof(AppBootstrapper).Assembly)
+                     .AsSelf()
                      .AsImplementedInterfaces();
             return container;
         }
