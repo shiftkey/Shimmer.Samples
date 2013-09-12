@@ -16,7 +16,8 @@ namespace Shimmer.DesktopDemo.ViewModels
         public SettingsViewModel(
             IScreen screen,
             ISettingsProvider settingsProvider,
-            IFolderHelper folderHelper)
+            IFolderHelper folderHelper, 
+            IAppContext appContext)
         {
             HostScreen = screen;
 
@@ -35,8 +36,10 @@ namespace Shimmer.DesktopDemo.ViewModels
             UpdateLocation = settingsProvider.UpdateLocation;
 
             var isValidUrlOrFile = this.WhenAny(vm => vm.UpdateLocation, vm => vm.Value)
+                .DistinctUntilChanged()
+                .Skip(1)
                 .Throttle(TimeSpan.FromSeconds(1))
-                .ObserveOn(App.Current.Dispatcher)
+                .ObserveOn(appContext.DispatcherScheduler)
                 .Select(IsUrlOrFolder)
                 .Do(valid =>
                 {
@@ -65,48 +68,46 @@ namespace Shimmer.DesktopDemo.ViewModels
             get { return _IsSaved.Value; }
         }
 
-        bool IsUrlOrFolder(string arg)
+        public bool IsUrlOrFolder(string arg)
         {
             ErrorMessage = "";
-            if (String.IsNullOrWhiteSpace(arg))
-            {
+            if (String.IsNullOrWhiteSpace(arg)) {
                 ErrorMessage = "please enter a path";
                 return false;
             }
 
             Uri uri;
-            if (Uri.TryCreate(arg, UriKind.RelativeOrAbsolute, out uri))
-            {
+            if (Uri.TryCreate(arg, UriKind.RelativeOrAbsolute, out uri)) {
                 if (uri.IsAbsoluteUri) {
-                    return true;
+
+                    FileInfo fileInfo;
+                    try {
+                        
+                        fileInfo = new FileInfo(arg);
+
+                        if (fileInfo.Exists) {
+                            ErrorMessage = "specify a directory, not a file";
+                            return false;
+                        }
+
+                        if (!Path.IsPathRooted(arg)) {
+                            ErrorMessage = "specify a full path";
+                            return false;
+                        }
+
+                        if (!Directory.Exists(arg)) {
+                            ErrorMessage = "the directory does not exist";
+                            return false;
+                        }
+
+                        return true;
+                    }
+                    catch (ArgumentException) { }
+                    catch (PathTooLongException) { }
+                    catch (NotSupportedException) { }
+
                 }
             }
-
-            FileInfo fileInfo;
-            try
-            {
-                fileInfo = new FileInfo(arg);
-
-                if (fileInfo.Exists) {
-                    ErrorMessage = "specify a directory, not a file";
-                    return false;
-                }
-
-                if (!Path.IsPathRooted(arg)) {
-                    ErrorMessage = "specify a full path";
-                    return false;
-                }
-
-                if (!Directory.Exists(arg)) {
-                    ErrorMessage = "the directory does not exist";
-                    return false;
-                }
-
-                return true;
-            }
-            catch (ArgumentException) { }
-            catch (PathTooLongException) { }
-            catch (NotSupportedException) { }
 
             ErrorMessage = "i don't even know what this is";
             return false;

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Shimmer.DesktopDemo</id>
+    <title>Shimmer Desktop Demo</title>
+    <version>$version$</version>
+    <authors>Brendan Forster</authors>
+    <description>A demo of how Shimmer works!</description>
+  </metadata>
+</package>
