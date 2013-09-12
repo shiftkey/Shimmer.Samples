@@ -5,19 +5,93 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Location:" Margin="8" />
-        <TextBox x:Name="UpdateLocation" 
-                 Grid.Row="0" 
-                 Grid.Column="1" 
-                 Margin="8" />
+
+        <TextBlock FontWeight="Bold"
+                   Text="Configuration"
+                   FontSize="24"
+                   Margin="0,0,0,12"
+                   Grid.ColumnSpan="2"/>
+
+        <TextBlock TextWrapping="Wrap"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Margin="0,0,0,12">
+                <Run Text="After installing the application, it needs to know where the updates can be found." />
+            <LineBreak/>
+            <LineBreak/>
+            <Run Text="Feel free to experiment with values here"/>
+        </TextBlock>
+
+        <TextBlock Text="Location"
+                   FontWeight="Bold"
+                   Margin="4"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Grid.Column="0"
+                   Grid.Row="2" />
+
+        <TextBox x:Name="UpdateLocation"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Margin="8,8,52,8" />
+
+        <TextBlock Text="location saved"
+                   HorizontalAlignment="Left"
+                   x:Name="SavedMessage"
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   Margin="8"
+                   FontStyle="Italic"/>
+
+        <TextBlock Text="specify a valid path or URL"
+                   HorizontalAlignment="Left"
+                   x:Name="ErrorMessage"
+                   Visibility="{Binding IsError, Converter={StaticResource VisibilityConverter}}"
+                   Foreground="Red"
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   Margin="8"
+                   FontStyle="Italic"/>
+
+        <Button x:Name="OpenFolder"
+                Grid.Row="2"
+                Grid.Column="1"
+                Content="Select"
+                Width="40"
+                HorizontalAlignment="Right"
+                Margin="8"
+                Background="{DynamicResource PrimaryColorBrush}" />
+
+        <Button x:Name="Back"
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="5"
+                Background="{DynamicResource PrimaryColorBrush}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/images/noun_project_15363.xaml.png"
+                           Height="40"
+                           Width="40"
+                           Margin="5" />
+                <TextBlock VerticalAlignment="Center"
+                               Margin="5"
+                               MinWidth="65" >
+                        <Run Text="Back"/>
+                </TextBlock>
+            </StackPanel>
+        </Button>
     </Grid>
 </UserControl>

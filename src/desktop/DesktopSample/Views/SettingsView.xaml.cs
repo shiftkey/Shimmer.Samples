@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Reactive.Linq;
+using System.Windows;
 using ReactiveUI;
+using ReactiveUI.Xaml;
 using Shimmer.DesktopDemo.ViewModels;
 
 namespace Shimmer.DesktopDemo.Views
@@ -11,6 +13,14 @@ namespace Shimmer.DesktopDemo.Views
             InitializeComponent();
 
             this.Bind(ViewModel, vm => vm.UpdateLocation, v => v.UpdateLocation.Text);
+
+            this.OneWayBind(ViewModel, vm => vm.ErrorMessage, v => v.ErrorMessage.Text);
+            this.OneWayBind(ViewModel, vm => vm.IsError, v => v.ErrorMessage.Visibility);
+
+            this.OneWayBind(ViewModel, vm => vm.IsSaved, v => v.SavedMessage.Visibility);
+
+            this.BindCommand(ViewModel, vm => vm.BackCommand, v => v.Back);
+            this.BindCommand(ViewModel, vm => vm.SelectFolder, v => v.OpenFolder);
         }
 
         public SettingsViewModel ViewModel

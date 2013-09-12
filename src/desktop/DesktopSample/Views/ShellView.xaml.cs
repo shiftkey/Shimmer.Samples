@@ -12,12 +12,15 @@ namespace Shimmer.DesktopDemo.Views
             InitializeComponent();
 
             this.BindCommand(ViewModel, x => x.SettingsCommand, x => x.Settings);
+            this.BindCommand(ViewModel, x => x.UpdateBasicsCommand, x => x.Basics);
+            this.BindCommand(ViewModel, x => x.BackgroundUpdaterCommand, x => x.Background);
         }
 
         public ShellViewModel ViewModel {
             get { return (ShellViewModel)GetValue(ViewModelProperty); }
             set { SetValue(ViewModelProperty, value); }
         }
+
         public static readonly DependencyProperty ViewModelProperty =
             DependencyProperty.Register("ViewModel", typeof(ShellViewModel), typeof(ShellView), new PropertyMetadata(null));
 

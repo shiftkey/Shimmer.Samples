@@ -3,31 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="450"
+             Background="{DynamicResource LightColorBrush}">
 
-        <Grid Margin="20,60,20,20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <TextBlock FontWeight="Bold" 
-                       Text="Shimmer Desktop Sample" 
-                       FontSize="18" />
+        <TextBlock FontWeight="Bold"
+                       Text="Shimmer Desktop Sample"
+                       FontSize="24"
+                       Margin="0,0,0,12" />
 
-            <TextBlock TextWrapping="Wrap" Grid.Row="1">
-                <Run Text="This is a demo application which shows how you can wireup Shimmer inside your application" />
-            </TextBlock>
-        </Grid>
+        <TextBlock TextWrapping="Wrap"
+                       Grid.Row="1"
+                       Margin="0,0,0,12">
+                <Run Text="This is a demo application which shows how you can wireup" />
+                <Run Text="Shimmer" FontWeight="Bold" />
+                <Run Text="inside your application." />
+                <LineBreak/>
+                <LineBreak/>
+                <Run Text="Check out the various code samples below to see how these various features work" />
+        </TextBlock>
 
-        <StackPanel
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom" 
-            Margin="0,20">
-
-            <Button>
+        <StackPanel Grid.Row="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+            <Button x:Name="Basics"
+                        Margin="5"
+                        Background="{DynamicResource PrimaryColorBrush}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/images/noun_project_464.xaml.png"
                            Height="40"
@@ -43,7 +51,9 @@
                 </StackPanel>
             </Button>
 
-            <Button>
+            <Button x:Name="Background"
+                        Margin="5"
+                        Background="{DynamicResource PrimaryColorBrush}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/images/noun_project_4985.xaml.png"
                            Height="40"
@@ -59,7 +69,7 @@
                 </StackPanel>
             </Button>
 
-            <Button x:Name="Settings">
+            <Button x:Name="Settings" Margin="5" Background="{DynamicResource PrimaryColorBrush}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/images/noun_project_5564.xaml.png"
                            Height="40"
@@ -72,6 +82,5 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-
     </Grid>
 </UserControl>

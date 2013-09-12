@@ -2,25 +2,45 @@
 using ReactiveUI;
 using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
+using Shimmer.DesktopDemo.Logic;
 
 namespace Shimmer.DesktopDemo.ViewModels
 {
     public class ShellViewModel : ReactiveObject, IRoutableViewModel
     {
-        public ShellViewModel(IScreen screen, Func<SettingsViewModel> getSettings)
+        public ShellViewModel(
+            IScreen screen,
+            Func<SettingsViewModel> getSettings,
+            Func<ForegroundUpdaterViewModel> getForegroundUpdater,
+            Func<BackgroundUpdaterViewModel> getBackgroundUpdater)
         {
             HostScreen = screen;
 
-            SettingsCommand = new ReactiveCommand();
-            SettingsCommand.Subscribe(next =>
-            {
+            SettingsCommand = new ReactiveAsyncCommand();
+            SettingsCommand.RegisterAsyncAction(o => {
                 var viewModel = getSettings();
-                HostScreen.Router.Navigate.Execute(viewModel);
+                HostScreen.Navigate(viewModel);
+            });
+
+            UpdateBasicsCommand = new ReactiveAsyncCommand();
+            UpdateBasicsCommand.RegisterAsyncAction(o => {
+                var viewModel = getForegroundUpdater();
+                HostScreen.Navigate(viewModel);
+            });
+
+            BackgroundUpdaterCommand = new ReactiveAsyncCommand();
+            BackgroundUpdaterCommand.RegisterAsyncAction(o => {
+                var viewModel = getBackgroundUpdater();
+                HostScreen.Navigate(viewModel);
             });
         }
 
         public string UrlPathSegment { get { return "shell"; } }
         public IScreen HostScreen { get; private set; }
-        public ReactiveCommand SettingsCommand { get; private set; }
+
+        public ReactiveAsyncCommand SettingsCommand { get; private set; }
+        public ReactiveAsyncCommand BackgroundUpdaterCommand { get; private set; }
+        public ReactiveAsyncCommand UpdateBasicsCommand { get; private set; }
     }
+
 }
