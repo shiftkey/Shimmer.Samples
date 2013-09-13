@@ -46,14 +46,6 @@
                  Grid.Column="1"
                  Margin="8,8,52,8" />
 
-        <TextBlock Text="location saved"
-                   HorizontalAlignment="Left"
-                   x:Name="SavedMessage"
-                   Grid.Column="1"
-                   Grid.Row="3"
-                   Margin="8"
-                   FontStyle="Italic"/>
-
         <TextBlock Text="specify a valid path or URL"
                    HorizontalAlignment="Left"
                    x:Name="ErrorMessage"

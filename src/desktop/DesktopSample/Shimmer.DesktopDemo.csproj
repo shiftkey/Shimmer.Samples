@@ -140,8 +140,8 @@
     <Compile Include="Logic\AppContext.cs" />
     <Compile Include="Logic\FolderHelper.cs" />
     <Compile Include="Logic\NavigationExtensions.cs" />
+    <Compile Include="ViewModels\BackgroundUpdaterViewModel.cs" />
     <Compile Include="ViewModels\ForegroundUpdaterViewModel.cs" />
-    <Compile Include="Logic\UpdaterStrategy.cs" />
     <Compile Include="Logic\SettingsProvider.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />

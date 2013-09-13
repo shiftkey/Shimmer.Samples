@@ -10,7 +10,6 @@ namespace Shimmer.DesktopDemo.ViewModels
 {
     public class SettingsViewModel : ReactiveObject, IRoutableViewModel
     {
-        readonly ObservableAsPropertyHelper<bool> _IsSaved;
         readonly ObservableAsPropertyHelper<bool> _IsError;
 
         public SettingsViewModel(
@@ -31,41 +30,26 @@ namespace Shimmer.DesktopDemo.ViewModels
                 if (result.Result == true) {
                     UpdateLocation = result.Folder;
                 }
-            });
+            }, appContext.DispatcherScheduler);
 
             UpdateLocation = settingsProvider.UpdateLocation;
 
-            var isValidUrlOrFile = this.WhenAny(vm => vm.UpdateLocation, vm => vm.Value)
-                .DistinctUntilChanged()
-                .Skip(1)
-                .Throttle(TimeSpan.FromSeconds(1))
-                .ObserveOn(appContext.DispatcherScheduler)
-                .Select(IsUrlOrFolder)
-                .Do(valid =>
-                {
-                    if (valid) { settingsProvider.UpdateLocation = UpdateLocation; }
-                });
-
-            _IsSaved = isValidUrlOrFile.ToProperty(
-                this,
-                vm => vm.IsSaved,
-                setViaReflection: false);
-
-            _IsError = isValidUrlOrFile.Select(b => !b).ToProperty(
-                this,
-                vm => vm.IsError,
-                setViaReflection: false);
-
+            _IsError = this.WhenAny(vm => vm.UpdateLocation, vm => vm.Value)
+                           .DistinctUntilChanged()
+                           .Throttle(TimeSpan.FromMilliseconds(500))
+                           .ObserveOn(appContext.DispatcherScheduler)
+                           .Select(text => !IsUrlOrFolder(text))
+                           .Do(error => {
+                                if (!error) {
+                                    settingsProvider.UpdateLocation = UpdateLocation;
+                                }
+                            })
+                            .ToProperty(this, vm => vm.IsError, setViaReflection: false);
         }
 
         public bool IsError
         {
             get { return _IsError.Value; }
-        }
-
-        public bool IsSaved
-        {
-            get { return _IsSaved.Value; }
         }
 
         public bool IsUrlOrFolder(string arg)

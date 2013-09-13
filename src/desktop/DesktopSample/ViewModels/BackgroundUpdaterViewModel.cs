@@ -3,14 +3,14 @@ using ReactiveUI.Routing;
 
 namespace Shimmer.DesktopDemo.ViewModels
 {
-    public class ForegroundUpdaterViewModel : ReactiveObject, IRoutableViewModel
+    public class BackgroundUpdaterViewModel : ReactiveObject, IRoutableViewModel
     {
-        public ForegroundUpdaterViewModel(IScreen screen)
+        public BackgroundUpdaterViewModel(IScreen screen)
         {
             HostScreen = screen;
         }
 
-        public string UrlPathSegment { get { return "foreground"; }}
+        public string UrlPathSegment { get { return "background"; } }
         public IScreen HostScreen { get; private set; }
     }
 }

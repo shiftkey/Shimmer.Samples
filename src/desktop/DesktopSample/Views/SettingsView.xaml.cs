@@ -17,8 +17,6 @@ namespace Shimmer.DesktopDemo.Views
             this.OneWayBind(ViewModel, vm => vm.ErrorMessage, v => v.ErrorMessage.Text);
             this.OneWayBind(ViewModel, vm => vm.IsError, v => v.ErrorMessage.Visibility);
 
-            this.OneWayBind(ViewModel, vm => vm.IsSaved, v => v.SavedMessage.Visibility);
-
             this.BindCommand(ViewModel, vm => vm.BackCommand, v => v.Back);
             this.BindCommand(ViewModel, vm => vm.SelectFolder, v => v.OpenFolder);
         }
