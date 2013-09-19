@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Reflection;
+using System.Windows;
 using ReactiveUI;
 using ReactiveUI.Xaml;
 using Shimmer.DesktopDemo.ViewModels;
@@ -14,6 +16,12 @@ namespace Shimmer.DesktopDemo.Views
             this.BindCommand(ViewModel, x => x.SettingsCommand, x => x.Settings);
             this.BindCommand(ViewModel, x => x.UpdateBasicsCommand, x => x.Basics);
             this.BindCommand(ViewModel, x => x.BackgroundUpdaterCommand, x => x.Background);
+
+            // what version are we currently running?
+
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            Version.Text = fvi.FileVersion;
         }
 
         public ShellViewModel ViewModel {
