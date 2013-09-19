@@ -42,7 +42,7 @@
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.9000, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Core.0.6.25\lib\net40\Ionic.Zip.dll</HintPath>
+      <HintPath>..\packages\Shimmer.Core.0.6.28\lib\net40\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="MarkdownSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -83,13 +83,11 @@
     <Reference Include="ReactiveUI.Xaml">
       <HintPath>packages\reactiveui-xaml.4.6.5\lib\Net40\ReactiveUI.Xaml.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Client, Version=0.6.25.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Client.0.6.25\lib\net40\Shimmer.Client.dll</HintPath>
+    <Reference Include="Shimmer.Client">
+      <HintPath>..\packages\Shimmer.Client.0.6.28\lib\net40\Shimmer.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Core, Version=0.6.25.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Core.0.6.25\lib\net40\Shimmer.Core.dll</HintPath>
+    <Reference Include="Shimmer.Core">
+      <HintPath>..\packages\Shimmer.Core.0.6.28\lib\net40\Shimmer.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -226,7 +224,9 @@
     <Resource Include="images\noun_project_15363.xaml.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shimmer.DesktopDemo.nuspec" />
+    <None Include="Shimmer.DesktopDemo.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
