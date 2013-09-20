@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using ReactiveUI;
+using ReactiveUI.Xaml;
 using Shimmer.DesktopDemo.ViewModels;
 
 namespace Shimmer.DesktopDemo.Views
@@ -9,6 +10,14 @@ namespace Shimmer.DesktopDemo.Views
         public ForegroundUpdaterView()
         {
             InitializeComponent();
+
+            this.BindCommand(ViewModel,
+                vm => vm.NextCommand,
+                view => view.Next);
+
+            this.BindCommand(ViewModel,
+                vm => vm.BackCommand,
+                view => view.Back);
         }
 
         public ForegroundUpdaterViewModel ViewModel

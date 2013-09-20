@@ -146,6 +146,9 @@
     <Compile Include="Views\BackgroundUpdaterView.xaml.cs">
       <DependentUpon>BackgroundUpdaterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ForegroundUpdaterView.xaml.cs">
+      <DependentUpon>ForegroundUpdaterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\BackgroundUpdaterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ForegroundUpdaterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
