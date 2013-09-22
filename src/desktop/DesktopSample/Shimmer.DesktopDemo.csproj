@@ -16,6 +16,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <BuildPackage>True</BuildPackage>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -42,12 +43,13 @@
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.9000, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Core.0.6.30\lib\net40\Ionic.Zip.dll</HintPath>
+      <HintPath>..\packages\Shimmer.Core.0.6.32\lib\net40\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="MarkdownSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
     </Reference>
@@ -83,11 +85,13 @@
     <Reference Include="ReactiveUI.Xaml">
       <HintPath>packages\reactiveui-xaml.4.6.5\lib\Net40\ReactiveUI.Xaml.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Client">
-      <HintPath>..\packages\Shimmer.Client.0.6.30\lib\net40\Shimmer.Client.dll</HintPath>
+    <Reference Include="Shimmer.Client, Version=0.6.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Shimmer.Client.0.6.32\lib\net40\Shimmer.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Core">
-      <HintPath>..\packages\Shimmer.Core.0.6.30\lib\net40\Shimmer.Core.dll</HintPath>
+    <Reference Include="Shimmer.Core, Version=0.6.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Shimmer.Core.0.6.32\lib\net40\Shimmer.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -120,6 +124,7 @@
     <Reference Include="System.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\net40\System.Threading.Tasks.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Interactivity" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
