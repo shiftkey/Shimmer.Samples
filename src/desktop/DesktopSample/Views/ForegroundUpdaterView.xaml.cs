@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Reactive.Linq;
+using System.Windows;
 using ReactiveUI;
 using ReactiveUI.Xaml;
+using Shimmer.DesktopDemo.Logic;
 using Shimmer.DesktopDemo.ViewModels;
 
 namespace Shimmer.DesktopDemo.Views
@@ -11,6 +14,10 @@ namespace Shimmer.DesktopDemo.Views
         {
             InitializeComponent();
 
+            this.WhenAny(x => x.ViewModel.State, x => x.Value)
+                .Where(x => x != null)
+                .Subscribe(x => VisualStateManager.GoToElementState(Grid, x, true));
+
             this.BindCommand(ViewModel,
                 vm => vm.NextCommand,
                 view => view.Next);
@@ -18,6 +25,23 @@ namespace Shimmer.DesktopDemo.Views
             this.BindCommand(ViewModel,
                 vm => vm.BackCommand,
                 view => view.Back);
+            this.BindCommand(ViewModel,
+                vm => vm.BackCommand,
+                view => view.Back1);
+            this.BindCommand(ViewModel,
+                vm => vm.BackCommand,
+                view => view.Back2);
+            this.BindCommand(ViewModel,
+                vm => vm.BackCommand,
+                view => view.Back3);
+
+            this.Bind(ViewModel, 
+                vm => vm.ErrorMessage,
+                view => view.ErroMessage.Text);
+
+            this.Bind(ViewModel,
+                vm => vm.Progress,
+                view => view.CheckingProgress.Value);
         }
 
         public ForegroundUpdaterViewModel ViewModel
