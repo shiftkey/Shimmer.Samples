@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Linq;
 using ReactiveUI;
 using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
@@ -28,7 +29,7 @@ namespace Shimmer.DesktopDemo.ViewModels
                 HostScreen.Navigate(viewModel);
             });
 
-            BackgroundUpdaterCommand = new ReactiveAsyncCommand();
+            BackgroundUpdaterCommand = new ReactiveAsyncCommand(Observable.Return(false));
             BackgroundUpdaterCommand.RegisterAsyncAction(o => {
                 var viewModel = getBackgroundUpdater();
                 HostScreen.Navigate(viewModel);
