@@ -36,9 +36,6 @@
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Home">
                         	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
-                        <StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="textBlock">
-                        	<DiscreteStringKeyFrame KeyTime="0" Value="Applying..."/>
-                        </StringAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="RestartState">
@@ -55,6 +52,9 @@
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Home">
                         	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
+                        <StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="textBlock">
+                        	<DiscreteStringKeyFrame KeyTime="0" Value="Close"/>
+                        </StringAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
@@ -118,7 +118,7 @@
                     <Image Source="/Shimmer.DesktopDemo;component/images/noun_project_15363.xaml.png"
                            Width="40"
                            Margin="5" />
-                    <TextBlock VerticalAlignment="Center"
+                    <TextBlock x:Name="textBlock" VerticalAlignment="Center"
                                Margin="5"
                                MinWidth="65" Text="Restart" />
                 </StackPanel>

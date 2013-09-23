@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Threading;
+using System.Windows;
 using ReactiveUI;
 using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
@@ -59,6 +60,7 @@ namespace Shimmer.DesktopDemo.ViewModels
         void restart()
         {
             // TODO: make a trick to restart the app
+            Application.Current.Shutdown(0);
         }
 
         public string UrlPathSegment { get { return "apply-updates"; } }
