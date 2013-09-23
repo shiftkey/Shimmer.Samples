@@ -60,24 +60,31 @@
         </Grid.ColumnDefinitions>
         <Grid x:Name="Checking" Grid.ColumnSpan="2" Margin="0,0,0,14.098" Grid.RowSpan="3" Opacity="0" Visibility="Collapsed">
 
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
             <TextBlock FontWeight="Bold"
-				Text="Checking..."
-				FontSize="24"
-				Margin="0,0,0,213.979"
-                   />
+                       Text="Checking..."
+                       FontSize="24" />
 
             <TextBlock TextWrapping="Wrap"
-				Grid.Column="0"
-				Margin="0,43.923,0,154.099"><Run Text="Now we're fetching the updates from the configured folder" /></TextBlock>
+                       Grid.Row="1"
+                       Text="First we're checking the update location to see if anything has changed..." />
 
-            <StackPanel
-				Grid.Column="0"
-				VerticalAlignment="Center"
-                Margin="0,117.901,0,0">
-                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Hey look, it's a progress bar!"/>
-                <ProgressBar  x:Name="CheckingProgress" />
+            <StackPanel VerticalAlignment="Center"
+                        Grid.Row="2">
+                <TextBlock HorizontalAlignment="Center"
+                           Text="Hey look, it's a progress bar!" />
+                <ProgressBar x:Name="CheckingProgress" Height="6" />
+                <TextBlock HorizontalAlignment="Center"
+                           Text="it's okay if this fills up too fast" />
             </StackPanel>
         </Grid>
+        
         <Grid x:Name="NoChanges"
               Grid.ColumnSpan="2"
               Grid.RowSpan="3"

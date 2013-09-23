@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Security.RightsManagement;
 using System.Threading;
 using ReactiveUI;
 using ReactiveUI.Routing;
@@ -16,9 +17,9 @@ namespace Shimmer.DesktopDemo.ViewModels
     {
         readonly Lazy<ApplyUpdatesViewModel> getApplyViewModel;
 
-        readonly ObservableAsPropertyHelper<int> progressObservable;
-        readonly ObservableAsPropertyHelper<int> updateCountProperty;
-        readonly ObservableAsPropertyHelper<string> latestReleaseProperty;
+        readonly ObservableAsPropertyHelper<int> progressObs;
+        readonly ObservableAsPropertyHelper<int> updateCountObs;
+        readonly ObservableAsPropertyHelper<string> latestVersionObs;
 
         readonly Subject<int> progress;
 
@@ -37,7 +38,7 @@ namespace Shimmer.DesktopDemo.ViewModels
             Download.Subscribe(_ => downloadUpdates());
 
             progress = new Subject<int>();
-            progressObservable = progress.ToProperty(
+            progressObs = progress.ToProperty(
                 this,
                 vm => vm.Progress);
 
@@ -45,15 +46,15 @@ namespace Shimmer.DesktopDemo.ViewModels
                 this.WhenAny(vm => vm.UpdateInfo, x => x.Value)
                     .Where(info => info != null);
 
-            updateCountProperty =
+            updateCountObs =
                 updateInfoChanges
                     .Select(info => info.ReleasesToApply.Count())
                     .ToProperty(this, vm => vm.UpdateCount);
 
-            latestReleaseProperty =
-                updateInfoChanges
-                    .Select(info => info.FutureReleaseEntry.Version.ToString())
-                    .ToProperty(this, vm => vm.LatestVersion);
+            latestVersionObs = updateInfoChanges
+                .Select(info => info.FutureReleaseEntry.Version.ToString())
+                .Where(x => !String.IsNullOrWhiteSpace(x))
+                .ToProperty(this, vm => vm.LatestVersion);
         }
 
         void downloadUpdates()
@@ -85,10 +86,13 @@ namespace Shimmer.DesktopDemo.ViewModels
         public string UrlPathSegment { get { return "check-updates"; } }
         public IScreen HostScreen { get; private set; }
 
-        public int Progress { get { return progressObservable.Value; } }
-        public int UpdateCount { get { return updateCountProperty.Value; } }
-        public string LatestVersion { get { return latestReleaseProperty.Value; } }
-
+        public int Progress { get { return progressObs.Value; } }
+        public int UpdateCount { get { return updateCountObs.Value; } }
+        public string LatestVersion { 
+            get { return latestVersionObs.Value; } 
+            set { /* pay no attention to what this hack is here for */ }
+        }
+        
         UpdateInfo _UpdateInfo;
         public UpdateInfo UpdateInfo
         {

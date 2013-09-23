@@ -45,65 +45,75 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid x:Name="ReadyToDownload" Grid.ColumnSpan="2" Margin="0,0,0,14.098" Grid.RowSpan="3">
+        <Grid x:Name="ReadyToDownload">
 
-        	<TextBlock FontWeight="Bold"
-        		Text="Updates Available"
-        		FontSize="24"
-        		Margin="0,0,0,213.979"
-                   />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        	<TextBlock TextWrapping="Wrap"
-        		Grid.Column="0"
-        		Margin="0,43.923,0,154.099"><Run Text="So we have " /><Run x:Name="UpdatesCount" Text="0"/><Run Text=" updates to apply"/><LineBreak/><LineBreak/><Run Text="Now we download those updates..."/></TextBlock>
-        	<StackPanel
-        		Grid.Column="0" 
-        		VerticalAlignment="Center" Margin="0,117.901,0,0">
-        		<Button x:Name="DownloadUpdates"
-        			HorizontalAlignment="Center"
-        			VerticalAlignment="Bottom"
-        			Margin="5"
-        			Background="{DynamicResource PrimaryColorBrush}">
-        			<StackPanel Orientation="Horizontal">
-        				<Image Source="/Shimmer.DesktopDemo;component/images/noun_project_464.xaml.png"
-        					Height="40"
-        					Width="40"
-        					Margin="5" />
-        				<TextBlock VerticalAlignment="Center"
-        					Margin="5"
-        					MinWidth="65" ><Run Text="Download"/><LineBreak/><Run Text="Updates"/></TextBlock>
-        			</StackPanel>
-        		</Button>
-
-        	</StackPanel>
-        </Grid>
-        <Grid x:Name="Progress" Grid.ColumnSpan="2" Margin="0,0,0,14.098" Grid.RowSpan="3" Opacity="0" Visibility="Collapsed">
-
-            <TextBlock x:Name="textBlock" FontWeight="Bold"
-				Text="Downloading..."
-				FontSize="24"
-				Margin="0,0,0,213.979"
-                   />
+            <TextBlock FontWeight="Bold"
+                       Text="Updates Available"
+                       FontSize="24"
+                       Grid.Row="0" />
 
             <TextBlock TextWrapping="Wrap"
-				Grid.Column="0"
-				Margin="0,43.923,0,154.099"><Run Text="Now we're downloading the updates from the configured location to a temporary folder..." /></TextBlock>
+                       Grid.Row="1">
+                <Run Text="So we have " />
+                <Run FontWeight="Bold" x:Name="UpdatesCount" Text="0" />
+                <Run Text=" updates to apply."/>
+                <LineBreak/><LineBreak/>
+                <Run Text="This will update your to version "/>
+                <Run FontWeight="Bold" x:Name="LatestVersion" Text="1.0.0" />
+                <LineBreak/><LineBreak/>
+                <Run Text="Now we download those updates..."/>
+            </TextBlock>
+            
+            <Button x:Name="DownloadUpdates"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Grid.Row="2"
+                    Margin="5"
+                    Background="{DynamicResource PrimaryColorBrush}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Shimmer.DesktopDemo;component/images/noun_project_464.xaml.png"
+                           Height="40"
+                           Width="40"
+                           Margin="5" />
+                    <TextBlock VerticalAlignment="Center"
+                               Margin="5"
+                               MinWidth="65" >
+                        <Run Text="Download"/>
+                        <LineBreak/>
+                        <Run Text="Updates"/>
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid x:Name="Progress" Opacity="0" Visibility="Collapsed">
 
-            <StackPanel
-				Grid.Column="0"
-				VerticalAlignment="Center"
-                Margin="0,117.901,0,0">
-                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Hey look, it's a progress bar!"/>
-                <ProgressBar  x:Name="CheckingProgress" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock FontWeight="Bold"
+                       Text="Downloading..."
+                       FontSize="24" />
+
+            <TextBlock TextWrapping="Wrap"
+                       Grid.Row="1"
+                       Text="Now we're downloading the updates from the configured location to a temporary folder..." />
+
+            <StackPanel VerticalAlignment="Center"
+                        Grid.Row="2">
+                <TextBlock HorizontalAlignment="Center"
+                           Text="Hey look, it's a progress bar!" />
+                <ProgressBar x:Name="CheckingProgress" Height="6" />
+                <TextBlock HorizontalAlignment="Center"
+                           Text="it's okay if this fills up too fast" />
             </StackPanel>
         </Grid>
     </Grid>

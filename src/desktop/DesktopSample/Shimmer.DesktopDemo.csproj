@@ -37,13 +37,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>images\noun_project_464_blue.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac">
       <HintPath>packages\Autofac.3.1.1\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.9000, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Core.0.6.32\lib\net40\Ionic.Zip.dll</HintPath>
+      <HintPath>..\packages\Shimmer.Core.0.6.33\lib\net40\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="MarkdownSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -85,13 +88,13 @@
     <Reference Include="ReactiveUI.Xaml">
       <HintPath>packages\reactiveui-xaml.4.6.5\lib\Net40\ReactiveUI.Xaml.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Client, Version=0.6.32.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Shimmer.Client, Version=0.6.33.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Client.0.6.32\lib\net40\Shimmer.Client.dll</HintPath>
+      <HintPath>..\packages\Shimmer.Client.0.6.33\lib\net40\Shimmer.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Core, Version=0.6.32.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Shimmer.Core, Version=0.6.33.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Core.0.6.32\lib\net40\Shimmer.Core.dll</HintPath>
+      <HintPath>..\packages\Shimmer.Core.0.6.33\lib\net40\Shimmer.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -146,16 +149,28 @@
     <Compile Include="Logic\AppContext.cs" />
     <Compile Include="Logic\FolderHelper.cs" />
     <Compile Include="Logic\NavigationExtensions.cs" />
+    <Compile Include="ViewModels\ApplyUpdatesViewModel.cs" />
     <Compile Include="ViewModels\BackgroundUpdaterViewModel.cs" />
-    <Compile Include="ViewModels\ForegroundUpdaterViewModel.cs" />
+    <Compile Include="ViewModels\CheckForUpdatesViewModel.cs" />
+    <Compile Include="ViewModels\DownloadUpdatesViewModel.cs" />
+    <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="Logic\SettingsProvider.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\BackgroundUpdaterView.xaml.cs">
       <DependentUpon>BackgroundUpdaterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ForegroundUpdaterView.xaml.cs">
-      <DependentUpon>ForegroundUpdaterView.xaml</DependentUpon>
+    <Compile Include="Views\CheckForUpdatesView.xaml.cs">
+      <DependentUpon>CheckForUpdatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ApplyUpdatesView.xaml.cs">
+      <DependentUpon>ApplyUpdatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DownloadUpdatesView.xaml.cs">
+      <DependentUpon>DownloadUpdatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorView.xaml.cs">
+      <DependentUpon>ErrorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
@@ -195,7 +210,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ForegroundUpdaterView.xaml">
+    <Page Include="Views\CheckForUpdatesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ApplyUpdatesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DownloadUpdatesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ErrorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,6 +276,10 @@
     <None Include="Shimmer.DesktopDemo.nuspec">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\noun_project_464_blue.ico" />
+    <Resource Include="images\noun_project_464_blue.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
