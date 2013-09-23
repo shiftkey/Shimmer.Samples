@@ -7,4 +7,9 @@
     <authors>Brendan Forster</authors>
     <description>A demo of how Shimmer works!</description>
   </metadata>
+  <files>
+    <file src="bin\$configuration$\Microsoft.Expression.Interactions.dll" target="lib\net40\" />
+    <file src="bin\$configuration$\System.Windows.Interactivity.dll" target="lib\net40\" />
+    <file src="bin\$configuration$\System.Reactive.Windows.Threading.dll" target="lib\net40\" />
+  </files>
 </package>
