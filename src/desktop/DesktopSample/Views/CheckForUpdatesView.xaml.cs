@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Reactive.Linq;
 using System.Windows;
 using ReactiveUI;
@@ -8,9 +7,9 @@ using Shimmer.DesktopDemo.ViewModels;
 
 namespace Shimmer.DesktopDemo.Views
 {
-    public partial class ForegroundUpdaterView : IViewFor<ForegroundUpdaterViewModel>
+    public partial class CheckForUpdatesView : IViewFor<CheckForUpdatesViewModel>
     {
-        public ForegroundUpdaterView()
+        public CheckForUpdatesView()
         {
             InitializeComponent();
 
@@ -28,43 +27,25 @@ namespace Shimmer.DesktopDemo.Views
             this.BindCommand(ViewModel,
                 vm => vm.BackCommand,
                 view => view.Back1);
-            this.BindCommand(ViewModel,
-                vm => vm.BackCommand,
-                view => view.Back2);
-            this.BindCommand(ViewModel,
-                vm => vm.BackCommand,
-                view => view.Back3);
-
-            this.BindCommand(ViewModel,
-                vm => vm.DownloadCommand,
-                view => view.DownloadUpdates);
-
-            this.Bind(ViewModel, 
-                vm => vm.ErrorMessage,
-                view => view.ErrorMessage.Text);
 
             this.Bind(ViewModel,
                 vm => vm.Progress,
                 view => view.CheckingProgress.Value);
-
-            this.Bind(ViewModel,
-                vm => vm.UpdateCount,
-                view => view.UpdatesCount.Text);
         }
 
-        public ForegroundUpdaterViewModel ViewModel
+        public CheckForUpdatesViewModel ViewModel
         {
-            get { return (ForegroundUpdaterViewModel)GetValue(ViewModelProperty); }
+            get { return (CheckForUpdatesViewModel)GetValue(ViewModelProperty); }
             set { SetValue(ViewModelProperty, value); }
         }
 
         public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register("ViewModel", typeof(ForegroundUpdaterViewModel), typeof(ForegroundUpdaterView), new PropertyMetadata(null));
+            DependencyProperty.Register("ViewModel", typeof(CheckForUpdatesViewModel), typeof(CheckForUpdatesView), new PropertyMetadata(null));
 
         object IViewFor.ViewModel
         {
             get { return ViewModel; }
-            set { ViewModel = (ForegroundUpdaterViewModel)value; }
+            set { ViewModel = (CheckForUpdatesViewModel)value; }
         }
     }
 }

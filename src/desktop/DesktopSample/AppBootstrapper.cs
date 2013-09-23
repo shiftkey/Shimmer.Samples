@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Reactive.Linq;
 using Autofac;
 using ReactiveUI;
 using ReactiveUI.Routing;
+using ReactiveUI.Xaml;
+using Shimmer.Client;
+using Shimmer.DesktopDemo.Logic;
 using Shimmer.DesktopDemo.ViewModels;
 
 namespace Shimmer.DesktopDemo
@@ -16,11 +20,17 @@ namespace Shimmer.DesktopDemo
 
             var containerBuilder = builder ?? CreateStandardContainer();
 
-            // AppBootstrapper is a global variable, so bind up 
-
+            // AppBootstrapper is a global variable, so bind up
             containerBuilder.RegisterInstance(this)
                             .As<IScreen>()
                             .SingleInstance();
+            
+            // we want to create our UpdateManager in the same way each time
+            containerBuilder.Register(ctx => {
+                var settings = ctx.Resolve<ISettingsProvider>();
+                return new UpdateManager(settings.UpdateLocation, "ShimmerDesktopDemo", FrameworkVersion.Net40);
+            }).As<UpdateManager>();
+
 
             var container = containerBuilder.Build();
 
@@ -35,6 +45,15 @@ namespace Shimmer.DesktopDemo
                     newBuilder.RegisterType(realClass).As(iface);
                     newBuilder.Update(container);
                 });
+
+            UserError.RegisterHandler(ex =>
+            {
+                var errorVm = container.Resolve<ErrorViewModel>();
+                errorVm.Message = ex.ErrorMessage;
+
+                Router.Navigate.Execute(errorVm);
+                return Observable.Return(RecoveryOptionResult.CancelOperation);
+            });
 
             var shell = container.Resolve<ShellViewModel>();
             Router.Navigate.Execute(shell);

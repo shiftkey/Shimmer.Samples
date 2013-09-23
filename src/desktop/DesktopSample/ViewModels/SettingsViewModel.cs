@@ -109,18 +109,17 @@ namespace Shimmer.DesktopDemo.ViewModels
         public string ErrorMessage
         {
             get { return _ErrorMessage; }
-            set { this.RaiseAndSetIfChanged(vm => vm.ErrorMessage, value); }
+            set { this.RaiseAndSetIfChanged(ref _ErrorMessage, value); }
         }
 
         string _UpdateLocation;
         public string UpdateLocation
         {
             get { return _UpdateLocation; }
-            set { this.RaiseAndSetIfChanged(vm => vm.UpdateLocation, value); }
+            set { this.RaiseAndSetIfChanged(ref _UpdateLocation, value); }
         }
 
         public string UrlPathSegment { get { return "settings"; } }
         public IScreen HostScreen { get; private set; }
-
     }
 }

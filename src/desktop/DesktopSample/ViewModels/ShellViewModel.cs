@@ -11,7 +11,7 @@ namespace Shimmer.DesktopDemo.ViewModels
         public ShellViewModel(
             IScreen screen,
             Func<SettingsViewModel> getSettings,
-            Func<ForegroundUpdaterViewModel> getForegroundUpdater,
+            Func<CheckForUpdatesViewModel> getForegroundUpdater,
             Func<BackgroundUpdaterViewModel> getBackgroundUpdater)
         {
             HostScreen = screen;
