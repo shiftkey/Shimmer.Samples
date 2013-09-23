@@ -64,6 +64,11 @@ namespace Shimmer.DesktopDemo.ViewModels
             if (Uri.TryCreate(arg, UriKind.RelativeOrAbsolute, out uri)) {
                 if (uri.IsAbsoluteUri) {
 
+                    if (uri.Scheme == "http" ||
+                        uri.Scheme == "https") {
+                        return true;
+                    }
+
                     FileInfo fileInfo;
                     try {
                         

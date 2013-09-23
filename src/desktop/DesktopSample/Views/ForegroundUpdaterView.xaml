@@ -254,7 +254,7 @@
 				<Run Text="Something went wrong!" />
 				<LineBreak />
 				<LineBreak />
-				<Run x:Name="ErroMessage" />
+				<Run x:Name="ErrorMessage" />
 			</TextBlock>
 
 			<StackPanel
