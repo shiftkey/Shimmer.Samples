@@ -31,7 +31,7 @@
                 <Run Text="After installing the application, it needs to know where the updates can be found." />
             <LineBreak/>
             <LineBreak/>
-            <Run Text="Feel free to experiment with values here"/>
+            <Run Text="This should be a folder, network share or URL where the releases are deployed"/>
         </TextBlock>
 
         <TextBlock Text="Location"

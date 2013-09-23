@@ -31,7 +31,6 @@ namespace Shimmer.DesktopDemo
                 return new UpdateManager(settings.UpdateLocation, "ShimmerDesktopDemo", FrameworkVersion.Net40);
             }).As<UpdateManager>();
 
-
             var container = containerBuilder.Build();
 
             RxApp.ConfigureServiceLocator(

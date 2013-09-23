@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Win32;
+﻿using System.Linq;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace Shimmer.DesktopDemo.Logic
 {
@@ -21,13 +18,16 @@ namespace Shimmer.DesktopDemo.Logic
     {
         public SelectFolderResult SelectFolder()
         {
-            var fileDialog = new OpenFileDialog();
-            var dialogResult = fileDialog.ShowDialog();
+            var dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            dialog.Multiselect = false;
+            var dialogResult = dialog.ShowDialog();
             var result = new SelectFolderResult();
-            result.Result = dialogResult;
 
-            if (dialogResult == true) {
-                result.Folder = fileDialog.FileName;
+            if (dialogResult == CommonFileDialogResult.Ok)
+            {
+                result.Result = true;
+                result.Folder = dialog.FileNames.FirstOrDefault();
             }
 
             return result;
