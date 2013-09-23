@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EDA847
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shimmer.DesktopDemo", "DesktopSample\Shimmer.DesktopDemo.csproj", "{32C4EBF4-4F05-49D9-BBA7-424398297F38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shimmer.DesktopDemo.Tests", "Shimmer.DesktopDemo.Tests\Shimmer.DesktopDemo.Tests.csproj", "{B1018645-83BD-4704-A747-4CAC36C5023E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,10 +20,6 @@ Global
 		{32C4EBF4-4F05-49D9-BBA7-424398297F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32C4EBF4-4F05-49D9-BBA7-424398297F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32C4EBF4-4F05-49D9-BBA7-424398297F38}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1018645-83BD-4704-A747-4CAC36C5023E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1018645-83BD-4704-A747-4CAC36C5023E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1018645-83BD-4704-A747-4CAC36C5023E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1018645-83BD-4704-A747-4CAC36C5023E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

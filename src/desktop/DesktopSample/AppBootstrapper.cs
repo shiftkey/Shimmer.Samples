@@ -31,6 +31,11 @@ namespace Shimmer.DesktopDemo
                 return new UpdateManager(settings.UpdateLocation, "ShimmerDesktopDemo", FrameworkVersion.Net40);
             }).As<UpdateManager>();
 
+            // by default i want this app to use the test feed
+            // but you can change this value in the settings
+            var settingsProvider = new SettingsProvider();
+            settingsProvider.UpdateLocation = "http://shimmer-demo.herokuapp.com/demo/";
+
             var container = containerBuilder.Build();
 
             RxApp.ConfigureServiceLocator(
