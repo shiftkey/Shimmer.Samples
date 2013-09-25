@@ -46,7 +46,7 @@
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.9000, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Core.0.6.33\lib\net40\Ionic.Zip.dll</HintPath>
+      <HintPath>..\packages\Shimmer.Core.0.6.34\lib\net40\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="MarkdownSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -94,13 +94,13 @@
     <Reference Include="ReactiveUI.Xaml">
       <HintPath>packages\reactiveui-xaml.4.6.5\lib\Net40\ReactiveUI.Xaml.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Client, Version=0.6.33.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Shimmer.Client, Version=0.6.34.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Client.0.6.33\lib\net40\Shimmer.Client.dll</HintPath>
+      <HintPath>..\packages\Shimmer.Client.0.6.34\lib\net40\Shimmer.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Core, Version=0.6.33.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Shimmer.Core, Version=0.6.34.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Shimmer.Core.0.6.33\lib\net40\Shimmer.Core.dll</HintPath>
+      <HintPath>..\packages\Shimmer.Core.0.6.34\lib\net40\Shimmer.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
