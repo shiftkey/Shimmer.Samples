@@ -57,9 +57,10 @@
 
             <TextBlock TextWrapping="Wrap"
                        Grid.Row="1">
-                <Run Text="So we have " />
+                <Run Text="So we have" />
                 <Run FontWeight="Bold" x:Name="UpdatesCount" Text="0" />
-                <Run Text=" updates to apply."/>
+                <Run Text="updates to apply "/>
+                <Run x:Name="UpdatesSize" Text="(123,405 bytes)" />
                 <LineBreak/><LineBreak/>
                 <Run Text="This will update your to version "/>
                 <Run FontWeight="Bold" x:Name="LatestVersion" Text="1.0.0" />

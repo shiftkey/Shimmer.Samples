@@ -31,6 +31,10 @@ namespace Shimmer.DesktopDemo.Views
             this.Bind(ViewModel,
                 vm => vm.Progress,
                 view => view.CheckingProgress.Value);
+
+            this.Bind(ViewModel,
+                vm => vm.UseDeltaPackages,
+                view => view.UseDeltaPackages.IsChecked);
         }
 
         public CheckForUpdatesViewModel ViewModel

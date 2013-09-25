@@ -54,7 +54,7 @@ namespace Shimmer.DesktopDemo.ViewModels
             }
 
             var updateManager = getUpdateManager();
-            updateManager.CheckForUpdate(false, progress)
+            updateManager.CheckForUpdate(!UseDeltaPackages, progress)
                 .Catch<UpdateInfo, ShimmerConfigurationException>(ex => {
                     UserError.Throw(new UserError("Something unexpected happened", innerException: ex));
                     return Observable.Return<UpdateInfo>(null);
@@ -88,6 +88,13 @@ namespace Shimmer.DesktopDemo.ViewModels
         {
             get { return _State; }
             private set { this.RaiseAndSetIfChanged(ref _State, value); }
+        }
+
+        bool _UseDeltaPackages = true;
+        public bool UseDeltaPackages
+        {
+            get { return _UseDeltaPackages; }
+            set { this.RaiseAndSetIfChanged(ref _UseDeltaPackages, value); }
         }
 
         public ReactiveAsyncCommand BackCommand { get; set; }

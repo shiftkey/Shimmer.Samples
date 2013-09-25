@@ -42,8 +42,7 @@ namespace Shimmer.DesktopDemo.ViewModels
             var updateManager = getUpdateManager();
             updateManager.ApplyReleases(UpdateInfo, progress)
                 .Finally(updateManager.Dispose)
-                .Catch<List<string>, Exception>(ex =>
-                {
+                .Catch<List<string>, Exception>(ex => {
                     UserError.Throw(new UserError("Something unexpected happened", innerException: ex));
                     return Observable.Return(new List<string>());
                 })

@@ -3,7 +3,6 @@ using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
-using System.Security.RightsManagement;
 using System.Threading;
 using ReactiveUI;
 using ReactiveUI.Routing;
@@ -20,6 +19,7 @@ namespace Shimmer.DesktopDemo.ViewModels
         readonly ObservableAsPropertyHelper<int> progressObs;
         readonly ObservableAsPropertyHelper<int> updateCountObs;
         readonly ObservableAsPropertyHelper<string> latestVersionObs;
+        readonly ObservableAsPropertyHelper<string> updateSizeObs;
 
         readonly Subject<int> progress;
 
@@ -51,6 +51,12 @@ namespace Shimmer.DesktopDemo.ViewModels
                     .Select(info => info.ReleasesToApply.Count())
                     .ToProperty(this, vm => vm.UpdateCount);
 
+            updateSizeObs =
+                updateInfoChanges
+                    .Select(info => info.ReleasesToApply.Sum(x => x.Filesize))
+                    .Select(total => String.Format("({0:n0} bytes)", total))
+                    .ToProperty(this, vm => vm.UpdateSize);
+
             latestVersionObs = updateInfoChanges
                 .Select(info => info.FutureReleaseEntry.Version.ToString())
                 .Where(x => !String.IsNullOrWhiteSpace(x))
@@ -65,8 +71,7 @@ namespace Shimmer.DesktopDemo.ViewModels
             updateManager.DownloadReleases(UpdateInfo.ReleasesToApply, progress)
                 // always be disposing
                 .Finally(updateManager.Dispose)
-                .Catch<Unit, Exception>(ex =>
-                {
+                .Catch<Unit, Exception>(ex => {
                     UserError.Throw(new UserError("Something unexpected happened", innerException: ex));
                     return Observable.Return(Unit.Default);
                 })
@@ -88,11 +93,19 @@ namespace Shimmer.DesktopDemo.ViewModels
 
         public int Progress { get { return progressObs.Value; } }
         public int UpdateCount { get { return updateCountObs.Value; } }
-        public string LatestVersion { 
-            get { return latestVersionObs.Value; } 
+
+        public string UpdateSize 
+        {
+            get { return updateSizeObs.Value; }
             set { /* pay no attention to what this hack is here for */ }
         }
-        
+
+        public string LatestVersion 
+        {
+            get { return latestVersionObs.Value; }
+            set { /* pay no attention to what this hack is here for */ }
+        }
+
         UpdateInfo _UpdateInfo;
         public UpdateInfo UpdateInfo
         {

@@ -18,6 +18,8 @@ namespace Shimmer.DesktopDemo
 
             LogHost.Default.Level = LogLevel.Debug;
 
+            ReactiveUIMicro.RxApp.ConfigureFileLogging("ShimmerDesktopDemo");
+
             var containerBuilder = builder ?? CreateStandardContainer();
 
             // AppBootstrapper is a global variable, so bind up
@@ -50,10 +52,9 @@ namespace Shimmer.DesktopDemo
                     newBuilder.Update(container);
                 });
 
-            UserError.RegisterHandler(ex =>
-            {
+            UserError.RegisterHandler(ex => {
                 var errorVm = container.Resolve<ErrorViewModel>();
-                errorVm.Message = ex.ErrorMessage;
+                errorVm.Message = string.Format("{0}\r\n\r\n{1}", ex.ErrorMessage, ex.InnerException);
 
                 Router.Navigate.Execute(errorVm);
                 return Observable.Return(RecoveryOptionResult.CancelOperation);

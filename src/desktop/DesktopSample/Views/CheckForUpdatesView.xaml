@@ -49,17 +49,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid x:Name="Checking" Grid.ColumnSpan="2" Margin="0,0,0,14.098" Grid.RowSpan="3" Opacity="0" Visibility="Collapsed">
-
+        <Grid x:Name="Checking" Opacity="0" Visibility="Collapsed">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -86,31 +76,32 @@
         </Grid>
         
         <Grid x:Name="NoChanges"
-              Grid.ColumnSpan="2"
-              Grid.RowSpan="3"
               Opacity="0" Visibility="Collapsed">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
 
             <TextBlock FontWeight="Bold"
                 Text="Great Success"
                 FontSize="24"
-                Margin="0,0,0,213.979" />
+                Grid.Row="0" />
 
             <TextBlock TextWrapping="Wrap"
-                       Grid.Column="0"
-                       Margin="0,43.923,0,154.099">
+                       Grid.Row="1">
                 <Run Text="Congratulations! You're up to date!" />
             </TextBlock>
 
-            <StackPanel
-				Grid.Column="0"
-				VerticalAlignment="Center"
-                Margin="0,117.901,0,0">
-                <Button x:Name="Back1"
-					HorizontalAlignment="Center"
-					VerticalAlignment="Bottom"
-					Margin="5"
-					Background="{DynamicResource PrimaryColorBrush}">
-                    <StackPanel Orientation="Horizontal">
+            <Button x:Name="Back1"
+                        Grid.Row="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Margin="5"
+                        Background="{DynamicResource PrimaryColorBrush}">
+                <StackPanel Orientation="Horizontal">
                         <Image Source="/Shimmer.DesktopDemo;component/images/noun_project_15363.xaml.png"
 							Height="40"
 							Width="40"
@@ -119,25 +110,37 @@
 							Margin="5"
 							MinWidth="65" ><Run Text="Back"/></TextBlock>
                     </StackPanel>
-                </Button>
-
-            </StackPanel>
+            </Button>
         </Grid>
-        <Grid x:Name="Home" Grid.ColumnSpan="2" Margin="0,0,0,14.098" Grid.RowSpan="3">
+        
+        <Grid x:Name="Home">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
             <TextBlock FontWeight="Bold"
 				Text="Updating Basics"
 				FontSize="24"
-				Margin="0,0,0,213.979"
-                   />
+				Grid.Row="0" />
 
             <TextBlock TextWrapping="Wrap"
-				Grid.Column="0"
-				Margin="0,43.923,0,154.099"><Run Text="The first thing to do is check for updates." /><LineBreak/><LineBreak/><Run Text="So click the button! Click it! Click it!"/></TextBlock>
+                       Grid.Row="1">
+                <Run Text="The first thing to do is check for updates." />
+                <LineBreak/><LineBreak/>
+                <Run Text="So click the button! Click it! Click it!"/>
+            </TextBlock>
+            
+            <CheckBox Grid.Row="2" x:Name="UseDeltaPackages" Margin="0,10">
+                Use Delta Packages (optional)
+            </CheckBox>
 
             <StackPanel
-				Grid.Column="0" 
-				VerticalAlignment="Center" Margin="0,117.901,0,0">
+				Grid.Row="3"
+				VerticalAlignment="Center">
                 <Button x:Name="Next"
 					HorizontalAlignment="Center"
 					VerticalAlignment="Bottom"
@@ -168,7 +171,6 @@
 							MinWidth="65" ><Run Text="Back"/></TextBlock>
                     </StackPanel>
                 </Button>
-
             </StackPanel>
         </Grid>
     </Grid>
