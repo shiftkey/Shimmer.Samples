@@ -32,6 +32,10 @@ namespace Shimmer.DesktopDemo.Views
             this.Bind(ViewModel,
                 vm => vm.LatestVersion,
                 view => view.LatestVersion.Text);
+
+            this.Bind(ViewModel,
+                vm => vm.UpdateSize,
+                view => view.UpdatesSize.Text);
         }
 
         public DownloadUpdatesViewModel ViewModel
