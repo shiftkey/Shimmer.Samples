@@ -6,10 +6,10 @@ using System.Threading;
 using ReactiveUI;
 using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
-using Shimmer.Client;
-using Shimmer.DesktopDemo.Logic;
+using Squirrel.Client;
+using Squirrel.DesktopDemo.Logic;
 
-namespace Shimmer.DesktopDemo.ViewModels
+namespace Squirrel.DesktopDemo.ViewModels
 {
     public class CheckForUpdatesViewModel : ReactiveObject, IRoutableViewModel
     {
@@ -55,7 +55,7 @@ namespace Shimmer.DesktopDemo.ViewModels
 
             var updateManager = getUpdateManager();
             updateManager.CheckForUpdate(!UseDeltaPackages, progress)
-                .Catch<UpdateInfo, ShimmerConfigurationException>(ex => {
+                .Catch<UpdateInfo, SquirrelConfigurationException>(ex => {
                     UserError.Throw(new UserError("Something unexpected happened", innerException: ex));
                     return Observable.Return<UpdateInfo>(null);
                 })

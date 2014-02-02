@@ -6,7 +6,7 @@ using System.Reactive.Concurrency;
 using System.Text;
 using ReactiveUI;
 
-namespace Shimmer.DesktopDemo.Logic
+namespace Squirrel.DesktopDemo.Logic
 {
     public interface IAppContext
     {

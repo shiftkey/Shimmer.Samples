@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Shimmer.DesktopDemo.Views.ErrorView"
+﻿<UserControl x:Class="Squirrel.DesktopDemo.Views.ErrorView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -23,8 +23,8 @@
             <Run Text="Something went wrong!" />
             <LineBreak />
             <LineBreak />
-            <Run x:Name="ErrorMessage" Text="System.InvalidOperationException: AwaitableAsyncSubject&lt;T&gt;.GetResult() is rethrowing an inner exception ---&gt; Shimmer.Core.ChecksumFailedException: Exception of type 'Shimmer.Core.ChecksumFailedException' was thrown.\r\n   at Shimmer.Core.DeltaPackageBuilder.verifyPatchedFile(String relativeFilePath, String inputFile, String tempTargetFile)\r\n   at Shimmer.Core.DeltaPackageBuilder.applyDiffToFile(String deltaPath, String relativeFilePath, String workingDirectory)\r\n   at Shimmer.Core.DeltaPackageBuilder.&lt;&gt;c__DisplayClass1a.&lt;ApplyDeltaPackage&gt;b__c(String file)\r\n   at System.Linq.EnumerableExtensions.ForEach[TSource](IEnumerable`1 source, Action`1 onNext)\r\n   at Shimmer.Core.DeltaPackageBuilder.ApplyDeltaPackage(ReleasePackage basePackage, ReleasePackage deltaPackage, String outputFile)\r\n   at Shimmer.Client.UpdateManager.&lt;&gt;c__DisplayClass61.&lt;createFullPackagesFromDeltas&gt;b__5a()\r\n   at System.Reactive.Linq.QueryLanguage.&lt;&gt;c__DisplayClasscb`1.&lt;&gt;c__DisplayClasscd.&lt;ToAsync&gt;b__ca()\r\n   --- End of inner e
-xception stack trace ---\r\n   at ReactiveUIMicro.AwaitableAsyncSubject`1.GetResult()\r\n   at Shimmer.Client.UpdateManager.&lt;applyReleases&gt;d__1f.MoveNext()" />
+            <Run x:Name="ErrorMessage" Text="System.InvalidOperationException: AwaitableAsyncSubject&lt;T&gt;.GetResult() is rethrowing an inner exception ---&gt; Squirrel.Core.ChecksumFailedException: Exception of type 'Squirrel.Core.ChecksumFailedException' was thrown.\r\n   at Squirrel.Core.DeltaPackageBuilder.verifyPatchedFile(String relativeFilePath, String inputFile, String tempTargetFile)\r\n   at Squirrel.Core.DeltaPackageBuilder.applyDiffToFile(String deltaPath, String relativeFilePath, String workingDirectory)\r\n   at Squirrel.Core.DeltaPackageBuilder.&lt;&gt;c__DisplayClass1a.&lt;ApplyDeltaPackage&gt;b__c(String file)\r\n   at System.Linq.EnumerableExtensions.ForEach[TSource](IEnumerable`1 source, Action`1 onNext)\r\n   at Squirrel.Core.DeltaPackageBuilder.ApplyDeltaPackage(ReleasePackage basePackage, ReleasePackage deltaPackage, String outputFile)\r\n   at Squirrel.Client.UpdateManager.&lt;&gt;c__DisplayClass61.&lt;createFullPackagesFromDeltas&gt;b__5a()\r\n   at System.Reactive.Linq.QueryLanguage.&lt;&gt;c__DisplayClasscb`1.&lt;&gt;c__DisplayClasscd.&lt;ToAsync&gt;b__ca()\r\n   --- End of inner e
+xception stack trace ---\r\n   at ReactiveUIMicro.AwaitableAsyncSubject`1.GetResult()\r\n   at Squirrel.Client.UpdateManager.&lt;applyReleases&gt;d__1f.MoveNext()" />
         </TextBlock>
         </ScrollViewer>
 
@@ -36,7 +36,7 @@ xception stack trace ---\r\n   at ReactiveUIMicro.AwaitableAsyncSubject`1.GetRes
 					Margin="5"
 					Background="{DynamicResource PrimaryColorBrush}">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Shimmer.DesktopDemo;component/images/noun_project_15363.xaml.png"
+                    <Image Source="/Squirrel.DesktopDemo;component/images/noun_project_15363.xaml.png"
 							Height="40"
 							Width="40"
 							Margin="5" />

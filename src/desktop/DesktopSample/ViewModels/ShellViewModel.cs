@@ -3,9 +3,9 @@ using System.Reactive.Linq;
 using ReactiveUI;
 using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
-using Shimmer.DesktopDemo.Logic;
+using Squirrel.DesktopDemo.Logic;
 
-namespace Shimmer.DesktopDemo.ViewModels
+namespace Squirrel.DesktopDemo.ViewModels
 {
     public class ShellViewModel : ReactiveObject, IRoutableViewModel
     {

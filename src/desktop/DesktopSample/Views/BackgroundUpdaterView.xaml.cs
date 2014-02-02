@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
 using ReactiveUI;
-using Shimmer.DesktopDemo.ViewModels;
+using Squirrel.DesktopDemo.ViewModels;
 
-namespace Shimmer.DesktopDemo.Views
+namespace Squirrel.DesktopDemo.Views
 {
     public partial class BackgroundUpdaterView : IViewFor<BackgroundUpdaterViewModel>
     {

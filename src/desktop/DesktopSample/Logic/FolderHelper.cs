@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
-namespace Shimmer.DesktopDemo.Logic
+namespace Squirrel.DesktopDemo.Logic
 {
     public class SelectFolderResult
     {

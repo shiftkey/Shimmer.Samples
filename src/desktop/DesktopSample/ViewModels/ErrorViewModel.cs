@@ -3,7 +3,7 @@ using ReactiveUI;
 using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
 
-namespace Shimmer.DesktopDemo.ViewModels
+namespace Squirrel.DesktopDemo.ViewModels
 {
     public class ErrorViewModel : ReactiveObject, IRoutableViewModel
     {

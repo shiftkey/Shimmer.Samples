@@ -1,12 +1,12 @@
-Shimmer.Samples
+Squirrel.Samples
 ===============
 
-A collection of Shimmer samples and demo applications
+A collection of Squirrel samples and demo applications
 
 
-### Shimmer.DesktopDemo
+### Squirrel.DesktopDemo
 
-This is the canonical sample for how to use Shimmer to deploy and update an application.
+This is the canonical sample for how to use Squirrel to deploy and update an application.
 
 It covers:
 

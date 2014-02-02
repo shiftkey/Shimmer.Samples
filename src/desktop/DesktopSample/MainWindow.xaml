@@ -1,8 +1,8 @@
-﻿<Window x:Class="Shimmer.DesktopDemo.MainWindow"
+﻿<Window x:Class="Squirrel.DesktopDemo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:routing="clr-namespace:ReactiveUI.Routing;assembly=ReactiveUI.Routing"
-        Title="Shimmer Desktop Sample"
+        Title="Squirrel Desktop Sample"
         Height="450"
         Width="450">
     <Grid UseLayoutRounding="True">

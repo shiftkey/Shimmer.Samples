@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using ReactiveUI;
 using ReactiveUI.Xaml;
-using Shimmer.DesktopDemo.ViewModels;
+using Squirrel.DesktopDemo.ViewModels;
 
-namespace Shimmer.DesktopDemo.Views
+namespace Squirrel.DesktopDemo.Views
 {
     public partial class ErrorView : IViewFor<ErrorViewModel>
     {

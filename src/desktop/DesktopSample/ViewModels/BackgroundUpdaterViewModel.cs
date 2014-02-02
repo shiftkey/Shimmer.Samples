@@ -1,7 +1,7 @@
 ﻿using ReactiveUI;
 using ReactiveUI.Routing;
 
-namespace Shimmer.DesktopDemo.ViewModels
+namespace Squirrel.DesktopDemo.ViewModels
 {
     public class BackgroundUpdaterViewModel : ReactiveObject, IRoutableViewModel
     {

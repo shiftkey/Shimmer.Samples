@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>ShimmerDesktopDemo</id>
-    <title>Shimmer Desktop Demo</title>
+    <id>SquirrelDesktopDemo</id>
+    <title>Squirrel Desktop Demo</title>
     <version>$version$</version>
     <authors>Brendan Forster</authors>
-    <description>A demo of how Shimmer works!</description>
+    <description>A demo of how Squirrel works!</description>
   </metadata>
   <files>
     <file src="bin\$configuration$\Microsoft.Expression.Interactions.dll" target="lib\net40\" />

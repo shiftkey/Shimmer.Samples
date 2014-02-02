@@ -1,4 +1,4 @@
-﻿namespace Shimmer.DesktopDemo
+﻿namespace Squirrel.DesktopDemo
 {
     public partial class MainWindow
     {
