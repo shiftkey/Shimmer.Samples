@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 
-namespace Shimmer.DesktopDemo
+namespace Squirrel.DesktopDemo
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -1,6 +1,6 @@
 ﻿using ReactiveUI.Routing;
 
-namespace Shimmer.DesktopDemo.Logic
+namespace Squirrel.DesktopDemo.Logic
 {
     public static class NavigationExtensions
     {

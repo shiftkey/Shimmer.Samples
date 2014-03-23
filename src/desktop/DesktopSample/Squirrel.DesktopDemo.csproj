@@ -7,8 +7,8 @@
     <ProjectGuid>{32C4EBF4-4F05-49D9-BBA7-424398297F38}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shimmer.DesktopDemo</RootNamespace>
-    <AssemblyName>Shimmer.DesktopDemo</AssemblyName>
+    <RootNamespace>Squirrel.DesktopDemo</RootNamespace>
+    <AssemblyName>Squirrel.DesktopDemo</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -45,7 +45,7 @@
       <HintPath>..\packages\Autofac.3.1.3\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip">
-      <HintPath>..\packages\Shimmer.Core.0.7.4\lib\net40\Ionic.Zip.dll</HintPath>
+      <HintPath>..\packages\Squirrel.Core.0.7.5\lib\net40\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="MarkdownSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -93,11 +93,11 @@
     <Reference Include="ReactiveUI.Xaml">
       <HintPath>..\packages\reactiveui-xaml.4.6.5\lib\Net40\ReactiveUI.Xaml.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Client">
-      <HintPath>..\packages\Shimmer.Client.0.7.4\lib\net40\Shimmer.Client.dll</HintPath>
+    <Reference Include="Squirrel.Client">
+      <HintPath>..\packages\Squirrel.Client.0.7.5\lib\net40\Squirrel.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Shimmer.Core">
-      <HintPath>..\packages\Shimmer.Core.0.7.4\lib\net40\Shimmer.Core.dll</HintPath>
+    <Reference Include="Squirrel.Core">
+      <HintPath>..\packages\Squirrel.Core.0.7.5\lib\net40\Squirrel.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -277,7 +277,7 @@
     <Resource Include="images\noun_project_15363.xaml.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shimmer.DesktopDemo.nuspec">
+    <None Include="Squirrel.DesktopDemo.nuspec">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

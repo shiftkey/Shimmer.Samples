@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EDA84739-8782-4AB8-B38E-04ADCDE58761}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -8,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EDA847
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shimmer.DesktopDemo", "DesktopSample\Shimmer.DesktopDemo.csproj", "{32C4EBF4-4F05-49D9-BBA7-424398297F38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Squirrel.DesktopDemo", "DesktopSample\Squirrel.DesktopDemo.csproj", "{32C4EBF4-4F05-49D9-BBA7-424398297F38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

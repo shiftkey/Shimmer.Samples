@@ -7,10 +7,10 @@ using System.Threading;
 using ReactiveUI;
 using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
-using Shimmer.Client;
-using Shimmer.DesktopDemo.Logic;
+using Squirrel.Client;
+using Squirrel.DesktopDemo.Logic;
 
-namespace Shimmer.DesktopDemo.ViewModels
+namespace Squirrel.DesktopDemo.ViewModels
 {
     public class DownloadUpdatesViewModel : ReactiveObject, IRoutableViewModel
     {

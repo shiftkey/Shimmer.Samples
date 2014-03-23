@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Shimmer.DesktopDemo.Views.ShellView"
+﻿<UserControl x:Class="Squirrel.DesktopDemo.Views.ShellView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock FontWeight="Bold"
-                       Text="Shimmer Desktop Sample"
+                       Text="Squirrel Desktop Sample"
                        FontSize="24"
                        Margin="0,0,0,12" />
 
@@ -23,7 +23,7 @@
                        Grid.Row="1"
                        Margin="0,0,0,12">
                 <Run Text="This is a demo application which shows how you can wireup" />
-                <Run Text="Shimmer" FontWeight="Bold" />
+                <Run Text="Squirrel" FontWeight="Bold" />
                 <Run Text="inside your application." />
                 <LineBreak/>
                 <LineBreak/>

@@ -7,9 +7,9 @@ using System.Windows;
 using ReactiveUI;
 using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
-using Shimmer.Client;
+using Squirrel.Client;
 
-namespace Shimmer.DesktopDemo.ViewModels
+namespace Squirrel.DesktopDemo.ViewModels
 {
     public class ApplyUpdatesViewModel : ReactiveObject, IRoutableViewModel
     {

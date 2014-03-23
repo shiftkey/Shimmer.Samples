@@ -1,6 +1,6 @@
-﻿using Shimmer.DesktopDemo.Properties;
+﻿using Squirrel.DesktopDemo.Properties;
 
-namespace Shimmer.DesktopDemo.Logic
+namespace Squirrel.DesktopDemo.Logic
 {
     public interface ISettingsProvider
     {

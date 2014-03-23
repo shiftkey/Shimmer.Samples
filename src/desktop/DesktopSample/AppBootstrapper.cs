@@ -4,11 +4,11 @@ using Autofac;
 using ReactiveUI;
 using ReactiveUI.Routing;
 using ReactiveUI.Xaml;
-using Shimmer.Client;
-using Shimmer.DesktopDemo.Logic;
-using Shimmer.DesktopDemo.ViewModels;
+using Squirrel.Client;
+using Squirrel.DesktopDemo.Logic;
+using Squirrel.DesktopDemo.ViewModels;
 
-namespace Shimmer.DesktopDemo
+namespace Squirrel.DesktopDemo
 {
     public class AppBootstrapper : ReactiveObject, IScreen
     {
@@ -18,7 +18,7 @@ namespace Shimmer.DesktopDemo
 
             LogHost.Default.Level = LogLevel.Debug;
 
-            ReactiveUIMicro.RxApp.ConfigureFileLogging("ShimmerDesktopDemo");
+            ReactiveUIMicro.RxApp.ConfigureFileLogging("SquirrelDesktopDemo");
 
             var containerBuilder = builder ?? CreateStandardContainer();
 
@@ -30,7 +30,7 @@ namespace Shimmer.DesktopDemo
             // we want to create our UpdateManager in the same way each time
             containerBuilder.Register(ctx => {
                 var settings = ctx.Resolve<ISettingsProvider>();
-                return new UpdateManager(settings.UpdateLocation, "ShimmerDesktopDemo", FrameworkVersion.Net40);
+                return new UpdateManager(settings.UpdateLocation, "SquirrelDesktopDemo", FrameworkVersion.Net40);
             }).As<UpdateManager>();
 
             // by default i want this app to use the test feed
